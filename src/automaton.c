@@ -16,6 +16,7 @@ void initialize_automaton(automaton_t *a) {
 			a->state &= ~((bits_t)1 << i);
 }
 
+
 void update_automaton(automaton_t *a) {
 	bits_t state_next = 0;
 	for (size_t i = 0; i < CFG_CELL_COUNT; i++) {

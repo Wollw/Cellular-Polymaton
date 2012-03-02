@@ -21,9 +21,15 @@ void serial_init(uint64_t baudrate);
  */
 void serial_write(char c);
 
+
 /*
- * Output the first len bits of a uint64_t pointer.
+ * Output the first len bits of a bits_t value
  */
 void serial_write_bits(bits_t b, size_t len);
+
+/*
+ * Output a string over serial
+ */
+void serial_write_str(char *s);
 
 #endif

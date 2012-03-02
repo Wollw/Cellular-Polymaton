@@ -25,7 +25,13 @@ typedef struct {
 	automaton_state_t state :CFG_CELL_COUNT;
 } automaton_t;
 
+/* Setup an automaton_t struct's members to point to the configured
+ * rules and cells
+ */
 void initialize_automaton(automaton_t *a);
+
+/* Update an automaton_t struct based on the rules it uses.
+ */
 void update_automaton(automaton_t *a);
 
 #endif

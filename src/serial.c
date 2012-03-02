@@ -24,11 +24,16 @@ void serial_write(char c) {
 	UDR0 = c;
 }
 
+
+void serial_write_str(char *s) {
+	while (*s)
+		serial_write(*s++);
+}
+
+
 void serial_write_bits(bits_t b, size_t len) {
 	while (len--) {
 		serial_write(b & ((bits_t)1 << len) ? '1' : '0');
 	}
-	serial_write('\n');
-	serial_write('\r');
 }
 #endif

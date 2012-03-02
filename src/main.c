@@ -1,28 +1,51 @@
-#include "config.h"
+/* Cellular Polymaton
+ *
+ * This is a framework for creating custom cellular automaton using
+ * geometry other than square grids.  It takes a lot more effort to
+ * make something this way than the simple 2D array but by defining
+ * exactly which cells are considered neighbors to each cell you can
+ * create any kind of automaton world you want.
+ *
+ * This program creates an automaton_t object and initializes it with
+ * data defined in config.h.  A timer is used to determine the time
+ * between updates to the automaton.
+ *
+ */
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/atomic.h>
 #include <stdbool.h>
+#include "config.h"
 #include "automaton.h"
 #include "serial.h"
 
-volatile bool update_cells;
+volatile bool update_flag;
 
 ISR(TIMER1_OVF_vect) {
 	ATOMIC_BLOCK(ATOMIC_FORCEON) {
-		update_cells = true;
+		update_flag = true;
 	}
 }
 
 int main(void) {
-	serial_init(9600);
-
 	automaton_t a;
 	initialize_automaton(&a);
-	update_cells = 0;
+	update_flag = 0;
 
-	for (size_t i = 0; i < 9; i++)
+#ifdef CFG_ENABLE_USART
+	/* Output the cell's neighbors sequentially from first
+	 * cell to last.
+	 */
+	serial_init(9600);
+	serial_write_str("----------\r\n");
+	serial_write_str("Neighbors:\r\n");
+	serial_write_str("----------\r\n");
+	for (size_t i = 0; i < 9; i++) {
 		serial_write_bits(a.cells[i].neighbors, 9);
+		serial_write_str("\r\n");
+	}
+	serial_write_str("----------\r\n");
+#endif
 
 	// Turn on 16 Bit Timer, Interrupt on Overflow
 	//TCCR1B |= _BV(CS10) | _BV(CS12);
@@ -31,13 +54,14 @@ int main(void) {
 	sei();
 
 	for (;;) {
-		if (update_cells) {
+		if (update_flag) {
 			ATOMIC_BLOCK(ATOMIC_FORCEON) {
-				update_cells = false;
-				serial_write('-');
-				serial_write('\r');
-				serial_write('\n');
+				update_flag = false;
+#ifdef CFG_ENABLE_USART
+				// Output the current state of the automaton.
 				serial_write_bits(a.state, CFG_CELL_COUNT);
+				serial_write_str("\r\n");
+#endif
 				update_automaton(&a);
 			}
 		}
