@@ -19,7 +19,7 @@
 #include "automaton.h"
 #include "serial.h"
 
-volatile bool update_flag;
+volatile bool update_flag = false;
 
 ISR(TIMER1_OVF_vect) {
 	ATOMIC_BLOCK(ATOMIC_FORCEON) {
@@ -30,7 +30,6 @@ ISR(TIMER1_OVF_vect) {
 int main(void) {
 	automaton_t a;
 	initialize_automaton(&a);
-	update_flag = false;
 
 #ifdef CFG_ENABLE_USART
 	/* Output the cell's neighbors sequentially from first
