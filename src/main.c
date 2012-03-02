@@ -30,7 +30,7 @@ ISR(TIMER1_OVF_vect) {
 int main(void) {
 	automaton_t a;
 	initialize_automaton(&a);
-	update_flag = 0;
+	update_flag = false;
 
 #ifdef CFG_ENABLE_USART
 	/* Output the cell's neighbors sequentially from first
