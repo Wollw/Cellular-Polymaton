@@ -5,12 +5,12 @@
 #include <stdbool.h>
 #include "config.h"
 
-#ifndef live
-#define live true
+#ifndef LIVE
+#define LIVE true
 #endif
 
-#ifndef dead
-#define dead false
+#ifndef DEAD
+#define DEAD false
 #endif
 
 typedef struct rules ruleset_t;
