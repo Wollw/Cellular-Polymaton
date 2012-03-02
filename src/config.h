@@ -21,7 +21,7 @@ struct rules {
 };
 
 struct cells {
-	uint64_t neighbors :CFG_CELL_COUNT;
+	bits_t neighbors :CFG_CELL_COUNT;
 	bool initial_state :1;
 } cfg_cells[] = {
 	{ 0b000011010, DEAD },
