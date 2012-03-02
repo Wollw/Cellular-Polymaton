@@ -1,0 +1,14 @@
+.DS_Store
+*.hex
+*.eep
+*.cof
+*.elf
+*.map
+*.sym
+*.lss
+*.o
+*.lst
+*.s
+*.d
+.dep
+tags
