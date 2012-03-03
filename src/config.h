@@ -9,7 +9,7 @@
 #define	CFG_ENABLE_SHIFT
 
 /* The ports and pins used for shifting bits out to the shift registers. */
-#define	CFG_SHIFT_REGISTER_PIN_COUNT	8
+#define	CFG_SHIFT_REGISTER_PIN_COUNT	24
 #define CFG_SHIFT_DDR					DDRB
 #define	CFG_SHIFT_PORT					PORTB
 #define	CFG_SHIFT_RCLK					PIN0
