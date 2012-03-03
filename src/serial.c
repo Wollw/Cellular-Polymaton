@@ -1,5 +1,4 @@
 #include "config.h"
-
 #ifdef CFG_ENABLE_USART
 #include <stdlib.h>
 #include <avr/io.h>

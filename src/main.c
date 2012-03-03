@@ -20,6 +20,7 @@
 #include "config.h"
 #include "automaton.h"
 #include "serial.h"
+#include "shift.h"
 
 volatile bool update_flag = false;
 
@@ -32,6 +33,10 @@ ISR(TIMER1_OVF_vect) {
 int main(void) {
 	automaton_t a;
 	initialize_automaton(&a);
+
+#ifdef CFG_ENABLE_SHIFT
+	shift_bits_init();
+#endif
 
 #ifdef CFG_ENABLE_USART
 	/* Output the cell's neighbors sequentially from first
@@ -58,6 +63,9 @@ int main(void) {
 		if (update_flag) {
 			ATOMIC_BLOCK(ATOMIC_FORCEON) {
 				update_flag = false;
+#ifdef CFG_ENABLE_SHIFT
+				shift_bits_out(a.state, CFG_CELL_COUNT);
+#endif
 #ifdef CFG_ENABLE_USART
 				// Output the current state of the automaton.
 				serial_write_bits(a.state, CFG_CELL_COUNT);
