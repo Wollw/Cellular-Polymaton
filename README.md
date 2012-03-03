@@ -54,6 +54,11 @@ If this is defined the automaton will output cell data over serial.
 	#define	CFG_USART_BAUDRATE	<uint64_t>
 This defines the baudrate of the serial port.
 
+	#define	CFG_USART_SET_BIT_MSG	<char[]>
+	#define	CFG_USART_CLR_BIT_MSG	<char[]>
+The string to use when outputting the bit states over serial.  These are
+"1" and "0" by default.
+
 	#define CFG_ENABLE_SHIFT
 If defined the state will be shifted out to a shift register (like the
 74HC595) using the definitions below.

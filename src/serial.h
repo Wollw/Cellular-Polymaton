@@ -4,6 +4,14 @@
 #include "defines.h"
 #include "config.h"
 
+#ifndef	CFG_USART_SET_BIT_MSG
+#define	CFG_USART_SET_BIT_MSG	"1"
+#endif
+
+#ifndef	CFG_USART_CLR_BIT_MSG
+#define	CFG_USART_CLR_BIT_MSG	"0"
+#endif
+
 
 /*
  * Calulate the USART Baud Rate Register (UBBR) value for Asynchronous

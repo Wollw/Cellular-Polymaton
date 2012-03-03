@@ -34,7 +34,8 @@ void serial_write_str(char *s) {
 
 void serial_write_bits(bits_t b, size_t len) {
 	while (len--) {
-		serial_write(b & ((bits_t)1 << len) ? '1' : '0');
+		serial_write_str(b & ((bits_t)1 << len) ?
+				CFG_USART_SET_BIT_MSG : CFG_USART_CLR_BIT_MSG);
 	}
 }
 #endif

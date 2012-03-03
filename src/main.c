@@ -22,6 +22,11 @@
 #include "serial.h"
 #include "shift.h"
 
+#ifdef CFG_ENABLE_USART
+#include <stdio.h>
+#endif
+
+
 volatile bool update_flag = false;
 
 ISR(TIMER1_OVF_vect) {
@@ -43,19 +48,22 @@ int main(void) {
 	 * cell to last.
 	 */
 	serial_init(9600);
-	serial_write_str("----------\r\n");
-	serial_write_str("Neighbors:\r\n");
-	serial_write_str("----------\r\n");
+	serial_write_str("-----------------------------\r\n");
+	serial_write_str("CELL\tSTATE\tNEIGHBORS\r\n");
+	char buffer[128];
 	for (size_t i = 0; i < 9; i++) {
+		sprintf(buffer, "%02d\t%s\t", i,
+				a.cells[i].initial_state ? "LIVE" : "DEAD");
+		serial_write_str(buffer);
 		serial_write_bits(a.cells[i].neighbors, 9);
 		serial_write_str("\r\n");
 	}
-	serial_write_str("----------\r\n");
+	serial_write_str("------------------------------\r\n");
 #endif
 
 	// Turn on 16 Bit Timer, Interrupt on Overflow
-	TCCR1B |= _BV(CS10) | _BV(CS12);
-	//TCCR1B |= _BV(CS12);
+	//TCCR1B |= _BV(CS10) | _BV(CS12);
+	TCCR1B |= _BV(CS12);
 	TIMSK1 |= _BV(TOIE1);
 	sei();
 
