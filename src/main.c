@@ -15,6 +15,7 @@
 #include <avr/interrupt.h>
 #include <util/atomic.h>
 #include <stdbool.h>
+
 #include "config.h"
 #include "automaton.h"
 #include "serial.h"

@@ -1,95 +1,71 @@
-Automaton AVR
+Cellular Polymaton
 =============
-
-NOTE
-----
-THIS README IS VERY OUT OF DATE AND COMPLETELY WRONG! IT IS ONLY HERE
-TO SERVE AS A REMINDER THAT IT NEEDS TO BE UPDATED!
 
 About
 -----
 
-This is a cellular automaton simulator based around the Atmel AVR MCU.
-All that is needed to use this simulation is an AVR (ATmega328P and 
-ATtiny85 have been tested) and three 74HC595 shift registers.  Optional 
-parts that can be added are an ADC input for dynamic setting of the delay
-between cell state changes, a serial connection for reading the petridish's
-state, and 4021 parallel to serial shift registers for reading the initial
-state and rules from some external source (such as dip switches).
+This implements a generalized cellular automaton framework for creating
+automaton using unique geometry.  I created this to allow me to make
+sculptures using light to represent cell state using shapes other than a
+simple square grid.  This required being able to explicitly say which
+cells are neighbors to each other.
 
 Configuration
 -------------
-Before compiling there must be a valid 'config.h' file in 'src' directory.
-See 'cfg/example.h' for an example.
 
-Pins used for the various inputs and outputs can be defined in the header
-file for that purpose (ie: the shift registers used to control the LEDs can
-be configured in leds.h).
+The file "src/config.h" can be changed to configure the rules and cells
+of the automaton as well as some other options.
 
 Configuration Options
 ---------------------
+The following is an explanation of the configurable options available
+in the file "config.h"
 
-	#define CONFIG_USE_SERIAL					<bool>
-	"true" to output current cell states on rx, "false" to disable serial
-	output.
+    #define	CFG_CELL_COUNT	<size_t>
+The number of cells in the automaton. Required.
 
-	#define	CONFIG_USE_SWITCHES_FOR_SETTINGS	<bool>
-	"true" to use rules read in from a parallel -> serial shift register
-	"false" to use predefined values from CONFIG_RULES_SURV,
-	CONFIG_RULES_BITH, and CONFIG_INITIAL_STATE.
+    #define CFG_MOST_NEIGHBORS	<size_t>
+The number of neighbor cells the cell with the most neighbors has.
 
-	#define	CONFIG_RULES_SURV					<uint32_t>
-	#define	CONFIG_RULES_BIRTH					<uint32_t>
-	uint32_t where each bit represents the rule for a neighbor count.
-	For example, the rules for Conway's Game of Life would be written like
-	this:
-		#define	CONFIG_RULES_SURV	0b1100
-		#define CONFIG_RULES_BIRTH	0b1000
-	bits 2 and 3 are set in the survival rules and only bit 3 is set
-	for the birth rules.  Conway's Game of Life defines cells as
-	surviving if they have 2 or 3 living neighbors and a dead cell comes to
-	life if it has three living neighbors. This is only used if
-	CONFIG_USE_SWITCHES_FOR_SETTINGS is false.
+    #define CFG_ENABLE_USART
+If this is defined the automaton will output cell data over serial.
 
-	#define	CONFIG_INITIAL_STATE				<uint64_t>
-	uint64_t where each bit represents a cell's initial state.
-	if CONFIG_INITIAL_STATE is set to 0b111000 then the cells with the ids
-	of 3, 4, and 5 will be alive at the start of the start of the
-	simulation.  This would result in a blinker with Conway's Game of Life
-	rules. This is only used if CONFIG_USE_SWITCHES_FOR_SETTINGS is false.
+    struct rules cfg_rules
+The members 'live' and 'dead' define the rules for cells that are
+alive and dead.  For example, the rule set:
+    { 0b00001100, 0b00001000 }
+defines rules for Conway's Game of Life.  The first bit field
+has bits 2 and 3 set, meaning cells with 2 or 3 living neighbors
+will stay alive (as the first rule set is for currently living
+cells).  The second bit field has only bit 3 set, meaning cells
+with three living neighbors will be born (as the second rule set is
+for cells that are currently dead).
 
-	#define	CONFIG_USE_ADC_FOR_DELAY_TIME		<bool>
-	If this is "true" the delay time will be determined by value read on
-	the ADC pin defined in "adc.h". The delay will be the value read
-	by on the ADC pin unless CONFIG_DELAY_MIN and CONFIG_DELAY_MAX are
-	defined.
+    struct cells cfg_cells
+This has two members, 'neighbors' and 'initial\_state'.  'neighbors'
+defines the cells that are considered neighbors to each cell and
+'initial\_state' defines the initial state of the cell.  Cell's are
+identified by the position in the cfg\_cells[] array and neighbor
+relationships are defined in a bit field such that a bit field of 
+0b1100 means a cell is neighbors with the cells at index 2 and 3 (as bits
+2 and 3 are set).  'initial\_state' is either 'DEAD' or 'LIVE' but these
+are truly just macros for false and true respectively so boolean values
+can be used as well.  As an example here is a simple cfg\_cells array
+defining a two cell automaton where the first cell starts out alive
+the second starts dead and they are both neighbors to eachother:
+    cfg_cells[] = {
+        { 0b10, LIVE },
+        { 0b01, DEAD }
+    }
 
-	#define CONFIG_DELAY_MIN					<uint16_t>
-	#define	CONFIG_DELAY_MAX					<uint16_t>
-	If CONFIG_USE_ADC_FOR_DELAY_TIME is "true" these values are used to
-	set a minimum and maximum delay time for the ADC to scale it's reading
-	by.  If CONFIG_DELAY_MIN is 1000 and CONFIG_DELAY_MAX is 2500 then
-	if the ADC reading is 0 the delay will be 1 second and if it is 
-	1023 it will be 2.5 seconds.
-
-	#define CONFIG_DELAY_MS 					<uint16_t>
-	Number of milliseconds to delay between update.  This is only used
-	if CONFIG_USE_ADC_FOR_DELAY_TIME is set to false.
-
-	#define CONFIG_NEIGHBORS					<uint64_t[]>
-	An array of uint64_t values that represent the cells considered 
-	neighbors to each cell.  Each bit of a neighbor value is represents
-	a cell so that a neighbor value of 0b111 would mean that cells 0, 1, and
-	2 are neighbors to that cell.  If that value is at index 4 then cell 4
-	will be the cell with neighbors of 0, 1, and 2.
-
-Installation
+Compilation
 ------------
-Pick a configuration:
-    $ cp cfg/myconfig.h src/config.h
 
-To build for (replace "mymcu" with the mcu you are building for):
-	$ MCU=mymcu make
+After creating a valid 'src/config.h' file you build by using the included
+Makefile.  The Makefile doesn't define a MCU type so you either have to
+define it in the Makefile yourself or just run make as follows:
+    $ MCU=mymcu make
 
-To upload:
-    $ make program
+After compilation you can program with the following if the Makefile's
+programmer settings match your setup:
+    $ MCU=mymcu make program

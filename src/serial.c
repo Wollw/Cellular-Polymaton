@@ -1,7 +1,9 @@
 #include "config.h"
+
 #ifdef CFG_ENABLE_USART
 #include <stdlib.h>
 #include <avr/io.h>
+
 #include "serial.h"
 
 void serial_init(uint64_t baudrate) {
