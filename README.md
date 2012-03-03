@@ -3,7 +3,8 @@
 This implements a generalized cellular automaton framework for creating
 automaton using unique geometry.  I created this to allow me to make sculptures using light to represent cell state using shapes other than a
 simple square grid.  This required being able to explicitly say which
-cells are neighbors to each other.
+cells are neighbors to each other.  The project is available under the MIT
+License.
 
 ##Configuration
 The file "src/config.h" can be changed to configure the rules and cells
