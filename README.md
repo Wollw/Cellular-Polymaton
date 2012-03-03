@@ -1,7 +1,7 @@
-Cellular Polymaton
+#Cellular Polymaton
 =============
 
-About
+##About
 -----
 
 This implements a generalized cellular automaton framework for creating
@@ -9,25 +9,23 @@ automaton using unique geometry.  I created this to allow me to make sculptures 
 simple square grid.  This required being able to explicitly say which
 cells are neighbors to each other.
 
-Configuration
+##Configuration
 -------------
 
 The file "src/config.h" can be changed to configure the rules and cells
 of the automaton as well as some other options.
 
-Configuration Options
+##Configuration Options
 ---------------------
 The following is an explanation of the configurable options available
 in the file "config.h"
 
+###Required
     #define	CFG_CELL_COUNT	<size_t>
-The number of cells in the automaton. Required.
+The number of cells in the automaton.
 
     #define CFG_MOST_NEIGHBORS	<size_t>
 The number of neighbor cells the cell with the most neighbors has.
-
-    #define CFG_ENABLE_USART
-If this is defined the automaton will output cell data over serial.
 
     struct rules cfg_rules
 The members 'live' and 'dead' define the rules for cells that are
@@ -55,6 +53,11 @@ the second starts dead and they are both neighbors to eachother:
         { 0b10, LIVE },
         { 0b01, DEAD }
     }`
+
+###Optional
+    #define CFG_ENABLE_USART
+If this is defined the automaton will output cell data over serial.
+
 
 Compilation
 ------------
