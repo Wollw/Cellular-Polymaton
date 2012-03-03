@@ -30,7 +30,7 @@ void update_automaton(automaton_t *a) {
 
 
 cell_state_t _cell_state_next(size_t i, automaton_t *a) {
-	rules_t r = (a->state & ((bits_t)1 << i)) ? a->rules->live : a->rules->dead;
+	bits_t r = (a->state & ((bits_t)1 << i)) ? a->rules->live : a->rules->dead;
 	return r & ((bits_t)1 << _cell_live_neighbors(i, a)) ? LIVE : DEAD;
 }
 
