@@ -56,12 +56,10 @@ This defines the baudrate of the serial port.
 If defined the state will be shifted out to a shift register (like the
 74HC595) using the definitions below.
 
-	#define CFG_SHIFT_REGISTER_COUNT <int>
-The number of shift registers chained together.
-
 	#define CFG_SHIFT_REGISTER_PIN_COUNT
-The number of output pins on the shift register.  For example, the
-74HC595 has 8 pins.
+The total number of pins between all the shift registers including unused
+pins.  If you have three 74HC595 shift registers then this number will be
+24 because 8 * 3 is 24.
 
 	#define	CFG_SHIFT_DDR	<DDRn>
 	#define	CFG_SHIFT_PORT	<PORTn>
