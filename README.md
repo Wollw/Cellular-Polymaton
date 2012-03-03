@@ -7,11 +7,8 @@ cells are neighbors to each other.
 
 ##Configuration
 The file "src/config.h" can be changed to configure the rules and cells
-of the automaton as well as some other options.
-
-##Configuration Options
-The following is an explanation of the configurable options available
-in the file "config.h"
+of the automaton as well as some other options.  The following is an
+explanation of the configurable options available in the file "config.h"
 
 ###Required
     #define	CFG_CELL_COUNT	<size_t>
