@@ -5,8 +5,7 @@ About
 -----
 
 This implements a generalized cellular automaton framework for creating
-automaton using unique geometry.  I created this to allow me to make
-sculptures using light to represent cell state using shapes other than a
+automaton using unique geometry.  I created this to allow me to make sculptures using light to represent cell state using shapes other than a
 simple square grid.  This required being able to explicitly say which
 cells are neighbors to each other.
 
@@ -53,6 +52,7 @@ are truly just macros for false and true respectively so boolean values
 can be used as well.  As an example here is a simple cfg\_cells array
 defining a two cell automaton where the first cell starts out alive
 the second starts dead and they are both neighbors to eachother:
+
     cfg_cells[] = {
         { 0b10, LIVE },
         { 0b01, DEAD }
@@ -64,8 +64,10 @@ Compilation
 After creating a valid 'src/config.h' file you build by using the included
 Makefile.  The Makefile doesn't define a MCU type so you either have to
 define it in the Makefile yourself or just run make as follows:
+
     $ MCU=mymcu make
 
 After compilation you can program with the following if the Makefile's
 programmer settings match your setup:
+
     $ MCU=mymcu make program
