@@ -52,7 +52,7 @@ are truly just macros for false and true respectively so boolean values
 can be used as well.  As an example here is a simple cfg\_cells array
 defining a two cell automaton where the first cell starts out alive
 the second starts dead and they are both neighbors to eachother:
-    `cfg_cells[] = {
+    `{
         { 0b10, LIVE },
         { 0b01, DEAD }
     }`
