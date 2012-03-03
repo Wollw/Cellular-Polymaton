@@ -51,7 +51,7 @@ int main(void) {
 	serial_write_str("-----------------------------\r\n");
 	serial_write_str("CELL\tSTATE\tNEIGHBORS\r\n");
 	char buffer[128];
-	for (size_t i = 0; i < 9; i++) {
+	for (size_t i = 0; i < CFG_CELL_COUNT; i++) {
 		sprintf(buffer, "%02d\t%s\t", i,
 				a.cells[i].initial_state ? "LIVE" : "DEAD");
 		serial_write_str(buffer);

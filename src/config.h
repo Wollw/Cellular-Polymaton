@@ -17,12 +17,12 @@
 #define	CFG_SHIFT_SRCLK					PIN2
 
 /* Comment this out of you don't want to use the serial port. */
-#define CFG_ENABLE_USART
+//#define CFG_ENABLE_USART
 /* The baudrate for serial transfer. */
 #define CFG_USART_BAUDRATE		9600
 /* What to output for set and cleared bits */
-#define	CFG_USART_SET_BIT_MSG	"x"
-#define	CFG_USART_CLR_BIT_MSG	"o"
+#define	CFG_USART_SET_BIT_MSG	"[46m [49m"
+#define	CFG_USART_CLR_BIT_MSG	"[44m [49m"
 
 /* The number of cells in the automaton */
 #define CFG_CELL_COUNT		19
