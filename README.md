@@ -32,9 +32,7 @@ If this is defined the automaton will output cell data over serial.
     struct rules cfg_rules
 The members 'live' and 'dead' define the rules for cells that are
 alive and dead.  For example, the rule set:
-
-    { 0b00001100, 0b00001000 }
-
+    `{ 0b00001100, 0b00001000 }`
 defines rules for Conway's Game of Life.  The first bit field
 has bits 2 and 3 set, meaning cells with 2 or 3 living neighbors
 will stay alive (as the first rule set is for currently living
@@ -54,11 +52,10 @@ are truly just macros for false and true respectively so boolean values
 can be used as well.  As an example here is a simple cfg\_cells array
 defining a two cell automaton where the first cell starts out alive
 the second starts dead and they are both neighbors to eachother:
-
-    cfg_cells[] = {
+    `cfg_cells[] = {
         { 0b10, LIVE },
         { 0b01, DEAD }
-    }
+    }`
 
 Compilation
 ------------
