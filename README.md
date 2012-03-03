@@ -32,7 +32,9 @@ If this is defined the automaton will output cell data over serial.
     struct rules cfg_rules
 The members 'live' and 'dead' define the rules for cells that are
 alive and dead.  For example, the rule set:
+
     { 0b00001100, 0b00001000 }
+
 defines rules for Conway's Game of Life.  The first bit field
 has bits 2 and 3 set, meaning cells with 2 or 3 living neighbors
 will stay alive (as the first rule set is for currently living
