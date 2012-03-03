@@ -48,6 +48,10 @@ the second starts dead and they are both neighbors to eachother:
 	}`
 
 ###Optional
+	#define	CFG_WAIT_COUNT <int>
+The number of interrupts to left occur before updating the world's state.
+Defaults to 1.
+
 	#define CFG_ENABLE_USART
 If this is defined the automaton will output cell data over serial.
 
@@ -96,3 +100,11 @@ After compilation you can program with the following if the Makefile's
 programmer settings match your setup:
 
 	$ MCU=mymcu make program
+
+There are example config.h files in the examples directory with Makefiles
+to go with them.  You can copy one of those config.h files to the src
+directory and run
+
+	$ make -f examples/PROJECT_DIR/Makefile program
+
+to flash one of them to a microcontroller.

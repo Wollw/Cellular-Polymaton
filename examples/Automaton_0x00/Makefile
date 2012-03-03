@@ -6,10 +6,10 @@
 #                customize the avrdude settings below first!
 
 # Microcontroller Type
-#MCU = atmega328p
+MCU = attiny85
 
 # Target file name (without extension).
-TARGET = cellular_polymaton
+TARGET = Automaton_0x00
 
 # Clock Speed in MHz
 F_CPU = 1000000

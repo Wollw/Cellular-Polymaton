@@ -1,9 +1,16 @@
+/*	An example configuration that defines a 3x3
+ *	grid with an initial state and rule set to display
+ *	the classic Conway's Game of Life Blinker.	*/
 #ifndef CONFIG_H
 #define CONFIG_H
 #include <stdint.h>
 #include <stdbool.h>
 #include <avr/io.h>
 #include "defines.h"
+
+/* The number of overflows before the world should be updated
+ * defaults to 1 */
+//#define CFG_WAIT_COUNT	1
 
 /* Comment this out of you don't want to use the shift registers. */
 #define	CFG_ENABLE_SHIFT

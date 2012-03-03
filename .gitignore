@@ -11,4 +11,5 @@
 *.s
 *.d
 .dep
+src/config.h
 tags

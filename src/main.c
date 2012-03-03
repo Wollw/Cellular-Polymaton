@@ -12,7 +12,6 @@
  *
  */
 #include <avr/io.h>
-#include <avr/interrupt.h>
 #include <util/atomic.h>
 #include <stdbool.h>
 
@@ -21,19 +20,14 @@
 #include "automaton.h"
 #include "serial.h"
 #include "shift.h"
+#include "interrupt.h"
 
 #ifdef CFG_ENABLE_USART
 #include <stdio.h>
 #endif
 
-
-volatile bool update_flag = false;
-
-ISR(TIMER1_OVF_vect) {
-	ATOMIC_BLOCK(ATOMIC_FORCEON) {
-		update_flag = true;
-	}
-}
+/* flag used to trigger world update */
+extern volatile bool update_flag;
 
 int main(void) {
 	automaton_t a;
@@ -62,9 +56,7 @@ int main(void) {
 #endif
 
 	// Turn on 16 Bit Timer, Interrupt on Overflow
-	//TCCR1B |= _BV(CS10) | _BV(CS12);
-	TCCR1B |= _BV(CS12);
-	TIMSK1 |= _BV(TOIE1);
+	interrupt_init();
 	sei();
 
 	for (;;) {

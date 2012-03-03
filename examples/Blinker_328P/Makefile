@@ -6,13 +6,13 @@
 #                customize the avrdude settings below first!
 
 # Microcontroller Type
-#MCU = atmega328p
+MCU = atmega328p
 
 # Target file name (without extension).
-TARGET = cellular_polymaton
+TARGET = blinker_328p
 
 # Clock Speed in MHz
-F_CPU = 1000000
+F_CPU = 8000000
 
 # Programming hardware: type avrdude -c ?
 # to get a full listing.
