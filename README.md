@@ -7,9 +7,9 @@ cells are neighbors to each other.  The project is available under the MIT
 License.
 
 ##Configuration
-The file "src/config.h" can be changed to configure the rules and cells
+The file 'src/config.h' can be changed to configure the rules and cells
 of the automaton as well as some other options.  The following is an
-explanation of the configurable options available in the file "config.h"
+explanation of the configurable options available in that file.
 
 ###Required
     #define	CFG_CELL_COUNT	<size_t>
