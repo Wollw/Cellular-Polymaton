@@ -1,6 +1,7 @@
 #ifndef		SERIAL_H
 #define		SERIAL_H
 #include <stdint.h>
+#include "defines.h"
 
 
 /*

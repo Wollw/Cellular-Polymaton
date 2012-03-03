@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
-
+#include "defines.h"
 #include "config.h"
 
 #ifndef LIVE

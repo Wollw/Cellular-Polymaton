@@ -16,6 +16,7 @@
 #include <util/atomic.h>
 #include <stdbool.h>
 
+#include "defines.h"
 #include "config.h"
 #include "automaton.h"
 #include "serial.h"
