@@ -1,22 +1,15 @@
 #Cellular Polymaton
-=============
-
 ##About
------
-
 This implements a generalized cellular automaton framework for creating
 automaton using unique geometry.  I created this to allow me to make sculptures using light to represent cell state using shapes other than a
 simple square grid.  This required being able to explicitly say which
 cells are neighbors to each other.
 
 ##Configuration
--------------
-
 The file "src/config.h" can be changed to configure the rules and cells
 of the automaton as well as some other options.
 
 ##Configuration Options
----------------------
 The following is an explanation of the configurable options available
 in the file "config.h"
 
@@ -59,8 +52,7 @@ the second starts dead and they are both neighbors to eachother:
 If this is defined the automaton will output cell data over serial.
 
 
-Compilation
-------------
+##Compilation
 
 After creating a valid 'src/config.h' file you build by using the included
 Makefile.  The Makefile doesn't define a MCU type so you either have to
