@@ -54,8 +54,8 @@ int main(void) {
 #endif
 
 	// Turn on 16 Bit Timer, Interrupt on Overflow
-	//TCCR1B |= _BV(CS10) | _BV(CS12);
-	TCCR1B |= _BV(CS12);
+	TCCR1B |= _BV(CS10) | _BV(CS12);
+	//TCCR1B |= _BV(CS12);
 	TIMSK1 |= _BV(TOIE1);
 	sei();
 

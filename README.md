@@ -9,7 +9,9 @@ License.
 ##Configuration
 The file 'src/config.h' can be changed to configure the rules and cells
 of the automaton as well as some other options.  The following is an
-explanation of the configurable options available in that file.
+explanation of the configurable options available in that file.  The timer
+ca be configured by changing the relevant section at the beginning of
+the main function in 'src/main.c'.
 
 ###Required
 	#define	CFG_CELL_COUNT	<size_t>
