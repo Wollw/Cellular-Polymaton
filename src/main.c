@@ -9,7 +9,6 @@
  * This program creates an automaton_t object and initializes it with
  * data defined in config.h.  A timer is used to determine the time
  * between updates to the automaton.
- *
  */
 #include <avr/io.h>
 #include <util/atomic.h>
