@@ -10,9 +10,6 @@
 #define	CFG_WAIT_COUNT	1
 #endif
 
-/* flag used to signal a world update */
-volatile bool update_flag;
-
 /* Setup the timer interrupt */
 void interrupt_init(void);
 

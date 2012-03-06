@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "interrupt.h"
+#include "defines.h"
 
 volatile size_t update_counter;
 #ifdef	__AVR_ATmega328P__
@@ -9,7 +10,7 @@ ISR(TIM0_OVF_vect) {
 #endif
 	ATOMIC_BLOCK(ATOMIC_FORCEON) {
 		if (++update_counter >= CFG_WAIT_COUNT) {
-			update_flag = true;
+			flags.update = true;
 			update_counter = 0;
 		} 
 	}
@@ -25,6 +26,6 @@ void interrupt_init(void) {
 	TIMSK  |= _BV(TOIE0);
 #endif
 	// We want to display something to start with.
-	update_flag = true;
+	flags.update = true;
 	update_counter = 0;
 }

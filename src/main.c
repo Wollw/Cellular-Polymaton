@@ -25,8 +25,10 @@
 #include <stdio.h>
 #endif
 
-/* flag used to trigger world update */
-extern volatile bool update_flag;
+/* status flags */
+flags_t flags = {
+	.update = false
+};
 
 int main(void) {
 	automaton_t a;
@@ -59,9 +61,9 @@ int main(void) {
 	sei();
 
 	for (;;) {
-		if (update_flag) {
+		if (flags.update) {
 			ATOMIC_BLOCK(ATOMIC_FORCEON) {
-				update_flag = false;
+				flags.update = false;
 #ifdef CFG_ENABLE_SHIFT
 				shift_bits_out(a.state, CFG_CELL_COUNT);
 #endif
