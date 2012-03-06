@@ -36,7 +36,7 @@
 struct rules {
 	bits_t live :CFG_MOST_NEIGHBORS+1;
 	bits_t dead :CFG_MOST_NEIGHBORS+1;
-} cfg_rules = {
+} const cfg_rules = {
 	0b11000010,
 	0b01111010
 };
@@ -45,7 +45,7 @@ struct rules {
 struct cells {
 	bits_t neighbors :CFG_CELL_COUNT;
 	bool initial_state :1;
-} cfg_cells[] = {
+} const cfg_cells[] = {
 	{ 0b0000000000001111110, LIVE },
 	{ 0b0000000001111000101, LIVE },
 	{ 0b0000000101001011011, DEAD },

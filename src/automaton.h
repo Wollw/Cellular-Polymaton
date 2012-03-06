@@ -11,8 +11,8 @@
  * user defined cells struct.  The state member is used to store which
  * cells are alive and dead. */
 typedef struct {
-	struct rules *rules;
-	struct cells  *cells;
+	struct rules const *rules;
+	struct cells const *cells;
 	bits_t state :CFG_CELL_COUNT;
 } automaton_t;
 

@@ -1,0 +1,298 @@
+# EESchema Netlist Version 1.1 created  Mon 05 Mar 2012 03:22:40 PM PST
+(
+ ( /4F5541AA SM1206 C1 0.1uF
+  ( 1 VCC )
+  ( 2 GND )
+ )
+ ( /4F4EB4E9 SM1206 C2 0.1uF
+  ( 1 VCC )
+  ( 2 GND )
+ )
+ ( /4F5541B7 SM1206 C3 0.1uF
+  ( 1 VCC )
+  ( 2 GND )
+ )
+ ( /4F5541BC SM1206 C4 0.1uF
+  ( 1 VCC )
+  ( 2 GND )
+ )
+ ( /4F5541C5 SM1206 C5 0.1uF
+  ( 1 VCC )
+  ( 2 GND )
+ )
+ ( /4F4EB437 SM1206 C6 100uF
+  ( 1 N-000035 )
+  ( 2 GND )
+ )
+ ( /4F4EB4DE SM1206 C7 0.1uF
+  ( 1 GND )
+  ( 2 VCC )
+ )
+ ( /4F4EB43A SM1206 C8 10uF
+  ( 1 VCC )
+  ( 2 GND )
+ )
+ ( /4F4EB43E D5 D1 1N5400
+  ( 1 N-000002 )
+  ( 2 N-000003 )
+ )
+ ( /4F4EB4F5 SM1206 D2 LED
+  ( 1 N-000001 )
+  ( 2 GND )
+ )
+ ( /4F4EB513 barrelJack K1 CONN_3
+  ( 1 N-000002 )
+  ( 2 GND )
+  ( 3 GND )
+ )
+ ( /4F4EB4CF PIN_ARRAY_5x2 P1 CONN_5X2
+  ( 1 /U1_QA )
+  ( 2 VCC )
+  ( 3 /U1_QB )
+  ( 4 /U1_QH )
+  ( 5 /U1_QC )
+  ( 6 /U1_QG )
+  ( 7 /U1_QD )
+  ( 8 /U1_QF )
+  ( 9 GND )
+  ( 10 /U1_QE )
+ )
+ ( /4F4EB4CE PIN_ARRAY_5x2 P2 CONN_5X2
+  ( 1 /U2_QA )
+  ( 2 VCC )
+  ( 3 /U2_QB )
+  ( 4 /U2_QH )
+  ( 5 /U2_QC )
+  ( 6 /U2_QG )
+  ( 7 /U2_QD )
+  ( 8 /U2_QF )
+  ( 9 GND )
+  ( 10 /U2_QE )
+ )
+ ( /4F4EB4CD PIN_ARRAY_5x2 P3 CONN_5X2
+  ( 1 /U3_QA )
+  ( 2 VCC )
+  ( 3 /U3_QB )
+  ( 4 /U3_QH )
+  ( 5 /U3_QC )
+  ( 6 /U3_QG )
+  ( 7 /U3_QD )
+  ( 8 /U3_QF )
+  ( 9 GND )
+  ( 10 /U3_QE )
+ )
+ ( /4F4EB4CA PIN_ARRAY_5x2 P4 CONN_5X2
+  ( 1 /U4_QA )
+  ( 2 VCC )
+  ( 3 /U4_QB )
+  ( 4 /U4_QH )
+  ( 5 /U4_QC )
+  ( 6 /U4_QG )
+  ( 7 /U4_QD )
+  ( 8 /U4_QF )
+  ( 9 GND )
+  ( 10 /U4_QE )
+ )
+ ( /4F4EB4C7 PIN_ARRAY_5x2 P5 CONN_5X2
+  ( 1 /U5_QA )
+  ( 2 VCC )
+  ( 3 /U5_QB )
+  ( 4 /U5_QH )
+  ( 5 /U5_QC )
+  ( 6 /U5_QG )
+  ( 7 /U5_QD )
+  ( 8 /U5_QF )
+  ( 9 GND )
+  ( 10 /U5_QE )
+ )
+ ( /4F4EB608 SIL-3 P6 CONN_3
+  ( 1 N-000028 )
+  ( 2 N-000029 )
+  ( 3 N-000026 )
+ )
+ ( /4F4EB56D SM1206 R1 330
+  ( 1 VCC )
+  ( 2 N-000001 )
+ )
+ ( /4F4EB521 SM1206 R2 100k
+  ( 1 VCC )
+  ( 2 N-000026 )
+ )
+ ( /4F4EB5A2 SIL-3 SW1 SWITCH_INV
+  ( 1 ? )
+  ( 2 N-000003 )
+  ( 3 N-000035 )
+ )
+ ( /4F4EB4AE SO16E U1 74HC595
+  ( 1 /U1_QB )
+  ( 2 /U1_QC )
+  ( 3 /U1_QD )
+  ( 4 /U1_QE )
+  ( 5 /U1_QF )
+  ( 6 /U1_QG )
+  ( 7 /U1_QH )
+  ( 8 GND )
+  ( 9 /SER_U1 )
+  ( 10 VCC )
+  ( 11 /SRCLK )
+  ( 12 /RCLK )
+  ( 13 GND )
+  ( 14 /SER )
+  ( 15 /U1_QA )
+  ( 16 VCC )
+ )
+ ( /4F4EB4AC SO16E U2 74HC595
+  ( 1 /U2_QB )
+  ( 2 /U2_QC )
+  ( 3 /U2_QD )
+  ( 4 /U2_QE )
+  ( 5 /U2_QF )
+  ( 6 /U2_QG )
+  ( 7 /U2_QH )
+  ( 8 GND )
+  ( 9 /SER_U2 )
+  ( 10 VCC )
+  ( 11 /SRCLK )
+  ( 12 /RCLK )
+  ( 13 GND )
+  ( 14 /SER_U1 )
+  ( 15 /U2_QA )
+  ( 16 VCC )
+ )
+ ( /4F4EB4AA SO16E U3 74HC595
+  ( 1 /U3_QB )
+  ( 2 /U3_QC )
+  ( 3 /U3_QD )
+  ( 4 /U3_QE )
+  ( 5 /U3_QF )
+  ( 6 /U3_QG )
+  ( 7 /U3_QH )
+  ( 8 GND )
+  ( 9 /SER_U3 )
+  ( 10 VCC )
+  ( 11 /SRCLK )
+  ( 12 /RCLK )
+  ( 13 GND )
+  ( 14 /SER_U2 )
+  ( 15 /U3_QA )
+  ( 16 VCC )
+ )
+ ( /4F4EB4A6 SO16E U4 74HC595
+  ( 1 /U4_QB )
+  ( 2 /U4_QC )
+  ( 3 /U4_QD )
+  ( 4 /U4_QE )
+  ( 5 /U4_QF )
+  ( 6 /U4_QG )
+  ( 7 /U4_QH )
+  ( 8 GND )
+  ( 9 /SER_U4 )
+  ( 10 VCC )
+  ( 11 /SRCLK )
+  ( 12 /RCLK )
+  ( 13 GND )
+  ( 14 /SER_U3 )
+  ( 15 /U4_QA )
+  ( 16 VCC )
+ )
+ ( /4F4EB4A9 SO16E U5 74HC595
+  ( 1 /U5_QB )
+  ( 2 /U5_QC )
+  ( 3 /U5_QD )
+  ( 4 /U5_QE )
+  ( 5 /U5_QF )
+  ( 6 /U5_QG )
+  ( 7 /U5_QH )
+  ( 8 GND )
+  ( 9 ? )
+  ( 10 VCC )
+  ( 11 /SRCLK )
+  ( 12 /RCLK )
+  ( 13 GND )
+  ( 14 /SER_U4 )
+  ( 15 /U5_QA )
+  ( 16 VCC )
+ )
+ ( /4F4EB432 SIL-3 U6 LM323T
+  ( 1 N-000035 )
+  ( 2 GND )
+  ( 3 VCC )
+ )
+ ( /4F553762 DIP-8__300 U7 ATTINY85
+  ( 1 N-000026 )
+  ( 2 N-000029 )
+  ( 3 N-000028 )
+  ( 4 GND )
+  ( 5 /RCLK )
+  ( 6 /SER )
+  ( 7 /SRCLK )
+  ( 8 VCC )
+ )
+)
+*
+{ Allowed footprints by component:
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component C3
+ SM*
+ C?
+ C1-1
+$endlist
+$component C4
+ SM*
+ C?
+ C1-1
+$endlist
+$component C5
+ SM*
+ C?
+ C1-1
+$endlist
+$component C6
+ CP*
+ SM*
+$endlist
+$component C7
+ SM*
+ C?
+ C1-1
+$endlist
+$component C8
+ CP*
+ SM*
+$endlist
+$component D1
+ D?
+ S*
+$endlist
+$component D2
+ LED-3MM
+ LED-5MM
+ LED-10MM
+ LED-0603
+ LED-0805
+ LED-1206
+ LEDV
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$endfootprintlist
+}
