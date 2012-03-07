@@ -9,7 +9,7 @@
 MCU = attiny85
 
 # Target file name (without extension).
-TARGET = Automaton_0x00
+TARGET = Automaton_0x01
 
 # Clock Speed in MHz
 F_CPU = 1000000
