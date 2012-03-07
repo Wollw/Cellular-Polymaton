@@ -1,6 +1,6 @@
-update=Wed 29 Feb 2012 03:43:35 PM PST
+update=Wed 07 Mar 2012 01:28:32 PM PST
 version=1
-last_client=pcbnew
+last_client=kicad
 [cvpcb]
 version=1
 NetITyp=0
@@ -11,8 +11,6 @@ LibDir=
 NetType=0
 [cvpcb/libraries]
 EquName1=devcms
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -92,7 +90,7 @@ DrawLar=150
 EdgeLar=150
 TxtLar=120
 MSegLar=150
-LastNetListRead=
+LastNetListRead=../../../../../../../School/Spring_2012/ART75/Cellular-Polymaton/sch/KiCAD/cellular-polymaton.net
 [pcbnew/libraries]
 LibDir=
 LibName1=sockets
@@ -106,3 +104,5 @@ LibName8=valves
 LibName9=led
 LibName10=dip_sockets
 LibName11=/home/davidshere/Development/Hardware/KiCAD/mod/myparts
+[general]
+version=1
