@@ -17,10 +17,11 @@ F_CPU = 1000000
 # Programming hardware: type avrdude -c ?
 # to get a full listing.
 # AVRDUDE_PROGRAMMER = dapa
-AVRDUDE_PROGRAMMER = usbtiny       
+# AVRDUDE_PROGRAMMER = usbtiny
 # AVRDUDE_PROGRAMMER = dt006
+AVRDUDE_PROGRAMMER = avrisp2
 
-AVRDUDE_PORT = /dev/usb    # not really needed for usb 
+AVRDUDE_PORT = usb
 #AVRDUDE_PORT = /dev/parport0           # linux
 # AVRDUDE_PORT = lpt1		       # windows
 
