@@ -17,7 +17,8 @@ typedef struct {
 } automaton_t;
 
 /* Setup an automaton_t struct's members to point to the configured
- * rules and cells. */
+ * rules and cells. This must be done to have the information defined
+ * in the config.h file be used. */
 void initialize_automaton(automaton_t *a);
 
 /* Update an automaton_t struct based on the rules it uses. */

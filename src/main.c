@@ -15,6 +15,7 @@
 #include <stdbool.h>
 
 #include "defines.h"
+#include "flags.h"
 #include "config.h"
 #include "automaton.h"
 #include "serial.h"
@@ -24,11 +25,6 @@
 #ifdef CFG_ENABLE_USART
 #include <stdio.h>
 #endif
-
-/* status flags */
-flags_t flags = {
-	.update = false
-};
 
 int main(void) {
 	automaton_t a;
@@ -58,8 +54,8 @@ int main(void) {
 
 	// Turn on 16 Bit Timer, Interrupt on Overflow
 	interrupt_init();
-	sei();
 
+	sei();
 	for (;;) {
 		if (flags.update) {
 			ATOMIC_BLOCK(ATOMIC_FORCEON) {

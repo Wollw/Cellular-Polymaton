@@ -4,6 +4,7 @@
 #include <util/atomic.h>
 #include <stdbool.h>
 #include "config.h"
+#include "flags.h"
 
 /* default number of cycles to wait for should be 1 */
 #ifndef	CFG_WAIT_COUNT
