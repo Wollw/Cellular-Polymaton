@@ -1,17 +1,17 @@
-#	Cellular Polymaton	#
-##	About	##
+#Cellular Polymaton#
+##About##
 This implements a generalized cellular automaton framework for creating
 automaton using unique geometry.  I created this to allow me to make sculptures using light to represent cell state using shapes other than a
 simple square grid.  This required being able to explicitly say which
 cells are neighbors to each other.  The project is available under the MIT
 License.
 
-##Configuration
+##Configuration##
 Make a duplicate of one of the projects in the "projects" directory,
 change the Makefile's CONFIG\_H  variable to point to the correct
 file, and edit the config.h file to your liking.
 
-###Required
+###Required###
 	#define	CFG_CELL_COUNT	<size_t>
 The number of cells in the automaton.
 
@@ -45,7 +45,7 @@ the second starts dead and they are both neighbors to eachother:
 		{ 0b01, DEAD }
 	}`
 
-###Optional
+###Optional###
 	#define	CFG_WAIT_COUNT <int>
 The number of interrupts to left occur before updating the world's state.
 Defaults to 1.
@@ -86,14 +86,13 @@ follows:
 	#define	CFG_SER			PIN1
 	#define	CFG_SRCLK		PIN2
 
-##Compilation
+##Compilation##
 
 Build:
-	$ make -f examples/PROJECT_DIR/Makefile
+	$ make -f projects/PROJECT_DIR/Makefile
 
 Flash:
-	$ make -f examples/PROJECT_DIR/Makefile program
+	$ make -f projects/PROJECT_DIR/Makefile program
 
 Clean:
-	$ make -f examples/PROJECT_DIR/Makefile clean
-
+	$ make -f projects/PROJECT_DIR/Makefile clean
