@@ -1,5 +1,5 @@
-#Cellular Polymaton
-##About
+#	Cellular Polymaton	#
+##	About	##
 This implements a generalized cellular automaton framework for creating
 automaton using unique geometry.  I created this to allow me to make sculptures using light to represent cell state using shapes other than a
 simple square grid.  This required being able to explicitly say which
@@ -7,11 +7,9 @@ cells are neighbors to each other.  The project is available under the MIT
 License.
 
 ##Configuration
-The file 'src/config.h' can be changed to configure the rules and cells
-of the automaton as well as some other options.  The following is an
-explanation of the configurable options available in that file.  The timer
-ca be configured by changing the relevant section at the beginning of
-the main function in 'src/main.c'.
+Make a duplicate of one of the projects in the "projects" directory,
+change the Makefile's CONFIG\_H  variable to point to the correct
+file, and edit the config.h file to your liking.
 
 ###Required
 	#define	CFG_CELL_COUNT	<size_t>
@@ -90,21 +88,12 @@ follows:
 
 ##Compilation
 
-After creating a valid 'src/config.h' file you build by using the included
-Makefile.  The Makefile doesn't define a MCU type so you either have to
-define it in the Makefile yourself or just run make as follows:
+Build:
+	$ make -f examples/PROJECT_DIR/Makefile
 
-	$ MCU=mymcu make
-
-After compilation you can program with the following if the Makefile's
-programmer settings match your setup:
-
-	$ MCU=mymcu make program
-
-There are example config.h files in the examples directory with Makefiles
-to go with them.  You can copy one of those config.h files to the src
-directory and run
-
+Flash:
 	$ make -f examples/PROJECT_DIR/Makefile program
 
-to flash one of them to a microcontroller.
+Clean:
+	$ make -f examples/PROJECT_DIR/Makefile clean
+

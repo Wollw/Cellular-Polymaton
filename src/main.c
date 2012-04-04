@@ -6,8 +6,8 @@
  * exactly which cells are considered neighbors to each cell you can
  * create any kind of automaton world you want.
  *
- * This program creates an automaton_t object and initializes it with
- * data defined in config.h.  A timer is used to determine the time
+ * This program creates an automaton_type object and initializes it with
+ * data defined in _config.h.  A timer is used to determine the time
  * between updates to the automaton.
  */
 #include <avr/io.h>
@@ -16,7 +16,7 @@
 
 #include "defines.h"
 #include "flags.h"
-#include "config.h"
+#include "_config.h"
 #include "automaton.h"
 #include "serial.h"
 #include "shift.h"
@@ -27,7 +27,7 @@
 #endif
 
 int main(void) {
-	automaton_t a;
+	automaton_type a;
 	initialize_automaton(&a);
 
 #ifdef CFG_ENABLE_SHIFT

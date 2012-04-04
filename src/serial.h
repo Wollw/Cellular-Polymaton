@@ -2,7 +2,7 @@
 #define		SERIAL_H
 #include <stdint.h>
 #include "defines.h"
-#include "config.h"
+#include "_config.h"
 
 #ifndef	CFG_USART_SET_BIT_MSG
 #define	CFG_USART_SET_BIT_MSG	"1"
@@ -33,9 +33,9 @@ void serial_write(char c);
 
 
 /*
- * Output the first len bits of a bits_t value
+ * Output the first len bits of a bits_type value
  */
-void serial_write_bits(bits_t b, size_t len);
+void serial_write_bits(bits_type b, size_t len);
 
 /*
  * Output a string over serial

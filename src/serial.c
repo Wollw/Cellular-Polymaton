@@ -1,4 +1,4 @@
-#include "config.h"
+#include "_config.h"
 #ifdef CFG_ENABLE_USART
 #include <stdlib.h>
 #include <avr/io.h>
@@ -32,9 +32,9 @@ void serial_write_str(char *s) {
 }
 
 
-void serial_write_bits(bits_t b, size_t len) {
+void serial_write_bits(bits_type b, size_t len) {
 	while (len--) {
-		serial_write_str(b & ((bits_t)1 << len) ?
+		serial_write_str(b & ((bits_type)1 << len) ?
 				CFG_USART_SET_BIT_MSG : CFG_USART_CLR_BIT_MSG);
 	}
 }

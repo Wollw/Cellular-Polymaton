@@ -6,10 +6,12 @@
 #                customize the avrdude settings below first!
 
 # Microcontroller Type
-#MCU = atmega328p
+MCU = attiny85
 
 # Target file name (without extension).
-TARGET = cellular_polymaton
+TARGET = Automaton_0x01
+
+CONFIG_H = projects/Automaton_0x01/config.h
 
 # Clock Speed in MHz
 F_CPU = 1000000
@@ -17,7 +19,7 @@ F_CPU = 1000000
 # Programming hardware: type avrdude -c ?
 # to get a full listing.
 # AVRDUDE_PROGRAMMER = dapa
-# AVRDUDE_PROGRAMMER = usbtiny
+# AVRDUDE_PROGRAMMER = usbtiny       
 # AVRDUDE_PROGRAMMER = dt006
 AVRDUDE_PROGRAMMER = avrisp2
 
@@ -124,8 +126,8 @@ LDFLAGS += -lm
 AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex
 #AVRDUDE_WRITE_EEPROM = -U eeprom:w:$(TARGET).eep
 
-#AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
-AVRDUDE_FLAGS = -p $(MCU) -c $(AVRDUDE_PROGRAMMER)
+AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
+#AVRDUDE_FLAGS = -p $(MCU) -c $(AVRDUDE_PROGRAMMER)
 
 # Uncomment the following if you want avrdude's erase cycle counter.
 # Note that this counter needs to be initialized first using -Yn,
@@ -142,7 +144,7 @@ AVRDUDE_FLAGS = -p $(MCU) -c $(AVRDUDE_PROGRAMMER)
 #AVRDUDE_FLAGS += -v -v
 
 #Run while cable attached or don't
-AVRDUDE_FLAGS += -E reset #keep chip disabled while cable attached
+#AVRDUDE_FLAGS += -E reset #keep chip disabled while cable attached
 #AVRDUDE_FLAGS += -E noreset
 
 #AVRDUDE_WRITE_FLASH = -U lfuse:w:0x04:m #run with 8 Mhz clock
@@ -183,6 +185,7 @@ ELFSIZE = $(SIZE) -C $(TARGET).elf --mcu=$(MCU)
 
 
 
+
 # Define Messages
 # English
 MSG_ERRORS_NONE = Errors: none
@@ -218,7 +221,7 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 
 # Default target: make program!
-all: begin gccversion sizebefore $(TARGET).elf $(TARGET).hex $(TARGET).eep \
+all: begin config gccversion sizebefore $(TARGET).elf $(TARGET).hex $(TARGET).eep \
 	$(TARGET).lss $(TARGET).sym sizeafter finished end
 #	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM)
 
@@ -228,6 +231,9 @@ all: begin gccversion sizebefore $(TARGET).elf $(TARGET).hex $(TARGET).eep \
 begin:
 	@echo
 	@echo $(MSG_BEGIN)
+
+config:
+	cp $(CONFIG_H) src/_config.h
 
 finished:
 	@echo $(MSG_ERRORS_NONE)
@@ -363,6 +369,7 @@ clean_list :
 	$(REMOVE) $(SRC:.c=.s)
 	$(REMOVE) $(SRC:.c=.d)
 	$(REMOVE) *~
+	$(REMOVE) src/_config.h
 
 # Automatically generate C source code dependencies. 
 # (Code originally taken from the GNU make user manual and modified 

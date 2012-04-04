@@ -5,8 +5,8 @@
  * should be declared here	*/
 typedef volatile struct {
 	bool update :1;
-} flags_t;
+} flags_type;
 
-extern flags_t flags;
+extern flags_type flags;
 
 #endif

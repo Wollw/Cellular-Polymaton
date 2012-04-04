@@ -1,5 +1,5 @@
 #include "flags.h"
 
-flags_t flags = {
+flags_type flags = {
 	.update = false
 };
