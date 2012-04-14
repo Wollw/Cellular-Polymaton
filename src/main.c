@@ -57,8 +57,8 @@ int main(void) {
 
 	sei();
 	for (;;) {
-		if (flags.update) {
-			ATOMIC_BLOCK(ATOMIC_FORCEON) {
+		ATOMIC_BLOCK(ATOMIC_FORCEON) {
+			if (flags.update) {
 				flags.update = false;
 #ifdef CFG_ENABLE_SHIFT
 				shift_bits_out(a.state, CFG_CELL_COUNT);
