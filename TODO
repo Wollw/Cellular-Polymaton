@@ -1,0 +1,2 @@
+Change power supply to use an lm2576 switching regulator instead
+of the linear regulator it currently uses.
