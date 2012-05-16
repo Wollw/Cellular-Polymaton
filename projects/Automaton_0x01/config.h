@@ -8,7 +8,7 @@
 
 /* The number of overflows before the world should be updated
  * defaults to 1 */
-#define CFG_WAIT_COUNT	4
+#define CFG_WAIT_COUNT	30
 
 /* Comment this out of you don't want to use the shift registers. */
 #define	CFG_ENABLE_SHIFT

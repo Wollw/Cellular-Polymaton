@@ -1,0 +1,1 @@
+avrdude -p t4 -c avrisp2 -P usb -p t4 -U flash:w:main.hex
