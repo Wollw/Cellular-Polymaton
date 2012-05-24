@@ -1,0 +1,40 @@
+body {
+	background: slategray;
+}
+
+
+
+div#container {
+	width: 1024px;
+	background: darkgray;
+	margin: auto;
+	border:solid black 1px;
+}
+
+header, footer {
+	padding: 10px;
+	background: #D33;
+	margin:0;
+	clear:both;
+}
+header h1 {
+	margin:0px;
+}
+
+section#content {
+	float:right;
+	padding-left: 40px;
+	padding-right: 40px;
+	background:white;
+}
+
+figure {
+	margin:auto;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding: 10px;
+	background:grey;
+	text-align:center;
+	font-size:small;
+	display:table;
+}
